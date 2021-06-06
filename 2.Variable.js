@@ -1,0 +1,10 @@
+var naam = "Name";
+console.log (naam);
+var num = 34;
+console.log (num);
+var char = 'f';
+console.log (char);
+var double = 342.423;
+console.log (double);
+var longDouble = 343.3434343;
+console.log (longDouble);
