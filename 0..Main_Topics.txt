@@ -1,0 +1,232 @@
+                                        <= Main Topic in JavaScript =>
+
+1. Scope {
+    - Local Scope (
+        allow acccess to everything within the boundaries (inside the box)
+    )
+        > eg :-
+                       -> Local Scope
+                    
+                    function showName(){
+                        name = "King";
+                        console.log(name);
+                    }
+                    showName();
+                    O/P :- 
+                        King
+
+                        -> Error in Local Scope
+                    
+                        function showName(){
+                            name = "King";
+                        }
+                        showName();
+                        console.log(name);
+                        O/P :- 
+                            Uncaught ReferrenceError : showName is not defined at <anonymous>
+
+
+    - Global Scope (
+        this is everything outside the boundaries (outside the box). A global scope
+        can not access a letiable defined in local scope because it is enclosed rom the outer world,
+        except if you return it.
+    )
+        > eg:- 
+                    -> Global Scope
+
+                    name = "King"
+                    
+                    function showName(){
+                        console.log(name)
+                    }
+                    console.log(name)
+                
+                    O/P :-
+                            King // inside the function
+                            King // outside the function
+}
+
+2. IIFE(Immediately Invoked Function Expression) {
+    An IIFE is a JS function that runs as soon as it is defined
+
+    - It is a design pattern which is also known as a Slf-Executing Anonymous Function and contains two major parts
+        1. Grouping Operator
+            -> The first is the anonymous function with lexical scope enclosed wthin the Grouping Operator().
+            This prevent acceessing letiable within the IIFE idioms as well a polluting the global scope.
+
+        2. IIFE (Immediately Invoked Function Expression)
+            -> The second part creates the Immediately Invoked Function Expression () through which the JS engine will directly interpret the function.
+
+        > eg :-
+                ( function (name) {
+                    title = "IIFE";
+                    console.log("This is a function name", title, name)
+                }) ("King");
+
+                O/P :-
+                        This is a function name IIFE King
+        
+}
+
+3. Hoisting {
+    In JavaScript, you can call a function before it is defined and you won't get an error
+    "Uncaught ReferrenceError". The reason behind this is hoisting where the js interpreter always 
+    moves the letiables and Function declaration to the top of the current scope (function scope or global scope)
+    before the code execution.
+
+    - eg:-
+                    Normal function calling
+
+        function cowSays(sound){
+            console.log(sound);
+        }
+
+        cowSays("moo");
+        O/P :-
+            moo
+
+                Hoisting
+
+        cowSays("moo")
+        function cowSays(sound){
+            console.log(sound);
+        }
+        O/P :-
+            moo
+}
+
+4. Closures {}
+5. CallBacks {}
+6. Promises {}
+7. Async & Await {}
+8. ES6 {}
+9. Currying {}
+10. Event Handling {}
+11. DOM {}
+12. Scope Chain {
+
+    - The scope chain is used to resolve the value of letiable names in javascript.
+
+    - Scope chain in js is lexically defined, which means that we can see what the scope chain will be by looking at the code.
+    
+    - Lexical scoping :- A function that is lexically within another function get access to the scope of the outer function(Inner function letiable But the vice-versa is not true)
+
+        > eg :-
+                    => Lexical Scope
+
+                let a = "Hello";
+
+                function first(){
+                    let b = "world";
+                    second();
+                    function second(){
+                        let c = "My name is King";
+                        console.log(a, b, c);
+                    }
+                }
+                
+                first(); // True
+
+                    => Non Lexical scope
+
+                let a = "Hello";
+
+                function first() {
+                    let b = "world";
+                    second();
+                    function second() {
+                        let c = "My name is King";
+                        console.log(a, b, c);
+                        three();
+                    }
+                }
+                function three() {
+                    let d = "My name is AISHA";
+                    console.log(a, d);
+                    // console.log(a, b, c, d)  //! Not  possible, because b and c are not an global scope even not into the function three and as we know one function did not interfare into the another function. And cannot use it's letiable
+                }
+                first();
+                    
+                    
+                    
+}
+
+13. Use Strict{
+    - You can use strict mode in all your programs. It helps you to write cleaner code, like preventing you from using undeclared variables. "use strict" is just a string, so IE 9 will not throw an error even if it does not understand it.
+
+            > eg :-
+            "use strict"
+
+            //! This is Hoisting function and this is not a good practice to use. When we write "use strict" then we have to use var, let, const, when we declare the variable this is good practice to avoid errors and make code cleaner. 
+            
+            // a(55,20);
+            
+            // function a (a, b){
+            //     multi = a * b;
+            //     console.log(add);
+            // }
+            
+            //? In this function we do every thing right but we declare two parameters (Duplicate parameter) and that is not allow into this context
+            
+            
+            // function b(x, x) {
+            //     var add = x + x;
+            //     console.log(add);
+            // }
+            
+            // b(12, 32);
+            
+            
+            //* Correct one
+            
+            
+            function c(x, y) {
+                let sub = x - y;
+                console.log(sub);
+            }
+            
+            c(12, 4);
+}
+
+14. This Keyword {
+    - The JS this Keyword refers to the object it belongs to.
+
+    - It has different values depending on where it is used:
+
+        -> Alone, this refers to the global object.
+            > eg:- 
+                    console.log(this); // The global object is windows object.
+
+        -> In a regular function, this refers to the global object.
+
+            > eg:-
+                function sum(){
+                    var add = 2 + 3;
+                    console.log("This is an sum of two no. "+add);
+                    console.log(this); // This showing "Undefined" in terminal but on web it will show the windows object. Windows object is a global object.
+                }
+                
+                sum() 
+                O/P :- 
+                    This is an sum of two no. 5
+                    undefined
+        -> In method, this refers to the owner object.
+        
+        > eg :- 
+                
+                    //* In Method
+
+                const king = {
+                    name: "DS Rathore",
+                    developer: true,
+                    sum: function () {
+                        var add = 2 + 3;
+                        console.log("This is an sum of two no. " + add);
+                        console.log(this);
+                    }
+                }
+                king.sum();
+        -> In a function, in strict mode, this is undefined.
+
+}
+
