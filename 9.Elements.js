@@ -1,8 +1,8 @@
-// var para = document.getElementsByClassName("para")[0].innerHTML;
-// console.log(para);
+var para = document.getElementsByClassName("para")[0].innerHTML;
+console.log(para);
 
-// var title = document.querySelector('.heading');
-// console.log(title);
+var title = document.querySelector('.heading');
+console.log(title);
 
 var counter = document.querySelector(".num");
 var follower = document.querySelector("#follower");
