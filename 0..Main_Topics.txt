@@ -96,7 +96,15 @@
 }
 
 4. Closures {}
-5. CallBacks {}
+5. CallBacks {
+    - Any function that is passed as an argument is called a callback function.
+    - A callback is a function that is to be executed after another function has finished executing - hence the name "call back"
+
+    Q Why callback function needed?
+    - Ans :- JS is an event driven language. This means that instead of waiting for a response before moving on, js will keep executing while listening for other events.
+
+    - Callback are a way to make sure certain code doesn't execute until other code has already finished execution.
+}
 6. Promises {}
 7. Async & Await {}
 8. ES6 {}
@@ -230,3 +238,35 @@
 
 }
 
+15. Types in JavaScript {
+    Primitive Data-Types // This have value
+    - Number
+    - String 
+    - Boolean
+    - Undefined
+    - Null // Null is primitive but it's type is object
+    - Symbol // ECMA2015
+
+    Non-Primitive Data-Types // This have reference
+    - Object
+}
+
+16. Function Programming {
+    "Functions is First Class Citizens"
+    - A programming language is said to have First-class functions when functions in that language are treated like any other variables.
+
+        1: In JS we can assign a function to a variable.
+            - Also as Methods,
+            - Assigning a method in JS is super easy as well. Similar to how we can assign a function to a variable we can assign a function as a value to a key in a object.
+        
+        2: Pass a function as an Argument
+            - Since functions are first class citizens in JS. we are able to pass them.
+            - This explains how we are treating the function as a value. The function that we pass as a argument to another function, is called a Callback function. greet is a Callback function
+
+        3: Returning Function
+            - This is a key concept when it comes to functional programming.
+}
+
+17. Anonymous Function {
+    - A funciton without a name.
+}
