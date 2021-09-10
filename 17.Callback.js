@@ -13,19 +13,20 @@
 // perOne(friend);
 // perTwo();
 
+
+
 const perOne = (friend, callFriend) => {
-    console.log(`Hey ${friend}, I'll call back you in few mintues. Talk to later`);
+    console.log(`Hey ${friend}, I'll call you back in few mintues. Talk to later`);
     callFriend();
 }
 
-const perTwo = ()=>{
+const perTwo = () => {
     console.log(`Hey, It's ok but it is important, call me soon`);
 }
 
-function ya (){
+function ya() {
     console.log("Ya");
 }
 
-perOne("Naman", ya);
-perTwo();
-
+perOne("Naman", perTwo);
+// perTwo();
